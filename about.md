@@ -8,7 +8,7 @@ permalink: /about/
 
 <div class="about-grid">
   <aside class="about-sidebar">
-    <img class="about-photo" src="{{ '/assets/julien.JPG' | relative_url }}" alt="Julien Hansen">
+    <img class="about-photo" src="{{ '/assets/julien.jpg' | relative_url }}" alt="Julien Hansen">
     <dl class="about-facts">
       <dt>Affiliation</dt>
       <dd>Uliège</dd>
