@@ -1,0 +1,55 @@
+title: Julien Hansen
+author: Julien Hansen
+email: # your email
+description: >-
+  Personal website — notes on papers, mathematical proofs, and ongoing work.
+url: "https://julienhansen.github.io"
+baseurl: ""
+
+permalink: /blog/:year/:month/:day/:title/
+
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge
+  input: GFM
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+
+collections:
+  publications:
+    output: false
+  projects:
+    output: false
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      kind: "post"
+  - scope:
+      path: ""
+      type: "publications"
+    values:
+      kind: "publication"
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      kind: "project"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"

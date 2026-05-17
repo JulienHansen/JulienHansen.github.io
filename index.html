@@ -1,0 +1,73 @@
+---
+layout: default
+title: Home
+---
+
+<section class="intro intro-with-photo">
+    <img
+        class="intro-photo"
+        src="{{ '/assets/julien.JPG' | relative_url }}"
+        alt="Julien Hansen"
+    />
+    <div class="intro-text">
+        <h1>Julien Hansen</h1>
+        <p class="lead">
+            “Nobody ever figures out what life is all about, and it doesn't
+            matter. Explore the world. Nearly everything is really interesting
+            if you go into it deeply enough.”
+        </p>
+        <p class="lead-cite">— Richard P. Feynman</p>
+    </div>
+</section>
+
+<section>
+    <p>
+        Hi,I am a Phd Student at the University of Liege working on
+        reinforcement learning with Prof. Damien Ernst. I'm interested in
+        multi-agents systems, open environments, world modeling and general-sum
+        games. Visitors who want more details about me can read the
+        <a href="{{ '/about/' | relative_url }}">about page</a>.
+    </p>
+    <p>
+        Recent writing and projects are below. Longer notes live in the
+        <a href="{{ '/blog/' | relative_url }}">blog</a> or in the
+        <a href="{{ '/projects/' | relative_url }}">projects</a> section, and
+        selected papers are on the
+        <a href="{{ '/publications/' | relative_url }}">publications page</a>.
+    </p>
+</section>
+
+<section>
+    <h2>Recent activity</h2>
+    {% assign activity = site.posts | concat: site.publications | concat:
+    site.projects | sort: 'date' | reverse %}
+    <ul class="activity-list">
+        {% for item in activity limit:8 %}
+        <li class="activity-item">
+            <time
+                class="activity-date"
+                datetime="{{ item.date | date_to_xmlschema }}"
+                >{{ item.date | date: "%b %-d, %Y" }}</time
+            >
+            <span class="activity-kind activity-kind-{{ item.kind }}"
+                >{{ item.kind }}</span
+            >
+            {% if item.kind == 'post' %}
+            <a class="activity-title" href="{{ item.url | relative_url }}"
+                >{{ item.title }}</a
+            >
+            {% elsif item.kind == 'project' %}
+            <a class="activity-title" href="{{ '/projects/' | relative_url }}"
+                >{{ item.title }}</a
+            >
+            {% else %}
+            <a
+                class="activity-title"
+                href="{{ '/publications/' | relative_url }}"
+                >{{ item.title }}</a
+            >
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</section>
